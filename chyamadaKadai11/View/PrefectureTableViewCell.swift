@@ -8,10 +8,12 @@
 import UIKit
 
 final class PrefectureTableViewCell: UITableViewCell {
+    static let nibCellName = "PrefectureTableViewCell"
+    static let nibId = "Cell"
+
     @IBOutlet private weak var prefectureNameLabel: UILabel!
 
     func configure(prefecture: Prefecture, row: Int) {
-        prefectureNameLabel.text = nil
         prefectureNameLabel.text = prefecture.name
     }
 }

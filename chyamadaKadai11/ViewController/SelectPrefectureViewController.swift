@@ -8,13 +8,10 @@
 import UIKit
 
 final class SelectPrefectureViewController: UIViewController {
-    let nibCellName = "PrefectureTableViewCell"
-    let nibId = "Cell"
-
     @IBOutlet private weak var prefectureTableView: UITableView! {
         didSet {
-            let nib = UINib(nibName: nibCellName, bundle: nil)
-            prefectureTableView.register(nib, forCellReuseIdentifier: nibId)
+            let nib = UINib(nibName: PrefectureTableViewCell.nibCellName, bundle: nil)
+            prefectureTableView.register(nib, forCellReuseIdentifier: PrefectureTableViewCell.nibId)
         }
     }
 
@@ -48,7 +45,8 @@ extension SelectPrefectureViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = prefectureTableView.dequeueReusableCell(withIdentifier: nibId, for: indexPath)
+        guard let cell
+                = prefectureTableView.dequeueReusableCell(withIdentifier: PrefectureTableViewCell.nibId, for: indexPath)
                 as? PrefectureTableViewCell else {
             fatalError("The dequeued cell is not instance")
         }
@@ -61,7 +59,7 @@ extension SelectPrefectureViewController: UITableViewDataSource {
 
 extension SelectPrefectureViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 40
+        40
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
