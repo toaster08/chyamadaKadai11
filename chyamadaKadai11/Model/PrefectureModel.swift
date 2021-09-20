@@ -7,6 +7,7 @@
 
 import Foundation
 
+// API通信を利用した場合のModel
 struct Prefecture: Decodable {
     var name: String
 
